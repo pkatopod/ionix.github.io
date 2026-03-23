@@ -1,593 +1,542 @@
 <!doctype html>
-<html lang="el">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Avgerinos Security στη Λευκάδα: εγκατάσταση συναγερμών, κάμερες CCTV, θυροτηλέφωνα και συντήρηση. Δωρεάν εκτίμηση χώρου." />
-  <title>Avgerinos Security | Συστήματα Συναγερμού στη Λευκάδα</title>
-
-  <!-- Helps browsers render form controls accessibly -->
-  <meta name="color-scheme" content="light">
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>IONIX Systems — Panagiotis Katopodis</title>
+  <meta name="description" content="IONIX Systems — IT & network solutions by Panagiotis Katopodis. Networking, computer systems, support and installation." />
 
   <style>
     :root{
-      /* Red/Black theme with accessible contrast */
-      --bg: #0b0b0f;
-      --panel: #111118;
-      --text: #f4f4f6;
-      --muted: #c9c9d3;
-      --brand: #e0142f;          /* red */
-      --brand-2: #ff3b57;        /* lighter red */
-      --border: #2a2a35;
-      --focus: #ffffff;
-      --shadow: 0 10px 30px rgba(0,0,0,.45);
-      --radius: 18px;
-      --max: 1100px;
+      --bg:#0b1220;
+      --card:#101a33;
+      --text:#eaf0ff;
+      --muted:#b8c4e6;
+      --brand:#3aa0ff;
+      --brand2:#7c5cff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 12px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1100px;
     }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji","Segoe UI Emoji";
-      line-height:1.55;
-      background: radial-gradient(1200px 700px at 20% -10%, rgba(224,20,47,.25), transparent 60%),
-                  radial-gradient(900px 600px at 110% 10%, rgba(224,20,47,.16), transparent 55%),
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(900px 500px at 15% 0%, rgba(58,160,255,.25), transparent 60%),
+                  radial-gradient(900px 500px at 85% 10%, rgba(124,92,255,.22), transparent 60%),
                   var(--bg);
-      color: var(--text);
+      color:var(--text);
+      line-height:1.5;
     }
-
-    /* Skip link (critical for accessibility) */
-    .skip-link{
-      position:absolute;
-      left:-999px;
-      top: 12px;
-      background: var(--text);
-      color: #000;
-      padding: 10px 14px;
-      border-radius: 10px;
-      z-index: 9999;
-      box-shadow: var(--shadow);
-    }
-    .skip-link:focus{ left: 12px; outline: 3px solid var(--brand); outline-offset: 3px; }
-
-    a { color: var(--text); text-underline-offset: 3px; }
-    a:hover { color: var(--brand-2); }
-    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-      outline: 3px solid var(--focus);
-      outline-offset: 3px;
-      border-radius: 10px;
-    }
-
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max); margin:0 auto; padding:0 18px;}
     header{
-      position: sticky;
-      top: 0;
-      background: rgba(11,11,15,.86);
+      position:sticky; top:0; z-index:10;
       backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,.08);
-      z-index: 1000;
+      background: rgba(11,18,32,.72);
+      border-bottom:1px solid var(--border);
     }
-    .wrap{
-      width: min(var(--max), calc(100% - 32px));
-      margin-inline: auto;
-    }
-    .topbar{
-      display:flex;
-      align-items:center;
-      justify-content: space-between;
-      gap: 18px;
-      padding: 14px 0;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+      gap:14px;
     }
     .brand{
-      display:flex; align-items:center; gap: 12px;
-      text-decoration:none;
+      display:flex; align-items:center; gap:12px; font-weight:800; letter-spacing:.2px;
+      min-width: 220px;
     }
-    .logo{
-      width: 42px; height: 42px;
-      border-radius: 14px;
-      background: linear-gradient(145deg, var(--brand), #8d0d1e);
-      display:grid; place-items:center;
-      box-shadow: 0 8px 22px rgba(224,20,47,.22);
-      flex: 0 0 auto;
+    .site-logo{
+      height:42px;
+      width:auto;
+      display:block;
     }
-    .logo span{
-      font-weight: 900;
-      letter-spacing: .5px;
-      color: #fff;
+    .brand-text{
+      font-weight:800;
+      letter-spacing:.3px;
+      color:var(--text);
+      white-space:nowrap;
     }
-    .brand strong{ display:block; font-size: 1rem; line-height: 1.1; }
-    .brand small{ display:block; color: var(--muted); font-size: .9rem; }
-
-    nav ul{
-      list-style:none;
-      margin:0;
-      padding:0;
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      align-items:center;
-    }
+    nav ul{display:flex; gap:14px; list-style:none; padding:0; margin:0;}
     nav a{
-      display:inline-block;
-      padding: 10px 12px;
-      border-radius: 12px;
-      text-decoration:none;
-      border: 1px solid transparent;
+      padding:8px 10px; border-radius:10px; color:var(--muted);
     }
-    nav a:hover{
-      border-color: rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
+    nav a:hover{background:rgba(255,255,255,.06); color:var(--text);}
+
+    .right-actions{
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+
+    .lang-toggle{
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:6px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .lang-btn{
+      appearance:none;
+      border:0;
+      background:transparent;
+      color:var(--muted);
+      font: inherit;
+      font-weight:700;
+      padding:6px 10px;
+      border-radius:10px;
+      cursor:pointer;
+    }
+    .lang-btn[aria-pressed="true"]{
+      color:var(--text);
+      background: rgba(255,255,255,.08);
     }
 
     .cta{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .btn{
-      appearance:none;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(255,255,255,.04);
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 14px;
-      font-weight: 700;
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      color:#07101f; font-weight:800;
+      box-shadow: var(--shadow);
+      border:0;
       cursor:pointer;
-      text-decoration:none;
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
+      transition: transform .15s ease;
+      white-space:nowrap;
     }
-    .btn.primary{
-      background: linear-gradient(145deg, var(--brand), #a41024);
-      border-color: rgba(255,255,255,.10);
-    }
-    .btn.primary:hover{ filter: brightness(1.05); }
-    .btn:hover{ background: rgba(255,255,255,.07); }
+    .cta:hover{transform: translateY(-1px);}
 
-    main{ display:block; }
-
+    main{padding:28px 0 60px;}
     .hero{
-      padding: 46px 0 28px;
+      display:grid; gap:18px;
+      grid-template-columns: 1.1fr .9fr;
+      align-items:center;
+      padding:28px 0 12px;
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 26px;
-      align-items: start;
+    .hero h1{font-size: clamp(28px, 4vw, 46px); margin:0;}
+    .hero p{color:var(--muted); margin:10px 0 0; font-size: clamp(15px, 1.5vw, 18px);}
+    .hero-actions{margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;}
+    .ghost{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 14px; border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
     }
+    .ghost:hover{background: rgba(255,255,255,.06);}
     .card{
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
-      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(16,26,51,.72);
+      border:1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .hero .card{
-      padding: 26px;
-    }
-
-    h1{
-      margin: 0 0 10px;
-      font-size: clamp(1.7rem, 2.7vw, 2.5rem);
-      line-height: 1.15;
-      letter-spacing: .2px;
-    }
-    .lead{
-      margin: 0 0 18px;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .badges{
-      display:flex; flex-wrap: wrap; gap: 10px;
-      margin: 16px 0 0;
-      padding: 0;
-      list-style:none;
-    }
+    .hero-card{padding:16px;}
     .badge{
-      border: 1px solid rgba(255,255,255,.12);
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(0,0,0,.20);
-      color: var(--text);
-      font-weight: 650;
-      font-size: .95rem;
-    }
-    .badge b{ color: var(--brand-2); }
-
-    .aside{
-      padding: 18px;
-    }
-    .aside h2{
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-    }
-    .aside p{
-      margin: 0 0 12px;
-      color: var(--muted);
-    }
-    .quick{
-      display:grid;
-      gap: 10px;
-    }
-    .quick a{
-      display:flex;
-      justify-content: space-between;
-      align-items:center;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      text-decoration:none;
-    }
-    .quick a:hover{ border-color: rgba(255,255,255,.18); }
-
-    section{
-      padding: 26px 0;
-    }
-    .section-title{
-      margin: 0 0 10px;
-      font-size: 1.55rem;
-    }
-    .section-sub{
-      margin: 0 0 18px;
-      color: var(--muted);
-      max-width: 70ch;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .service{
-      padding: 18px;
-    }
-    .service h3{
-      margin: 0 0 8px;
-      font-size: 1.1rem;
-    }
-    .service p{ margin: 0; color: var(--muted); }
-
-    .steps{
-      counter-reset: step;
-      display:grid;
-      gap: 12px;
-    }
-    .step{
-      padding: 16px 18px;
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.10);
+      display:inline-flex; gap:8px; align-items:center;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
       background: rgba(255,255,255,.03);
+      font-size:13px;
     }
-    .step h3{
-      margin: 0 0 6px;
-      font-size: 1.05rem;
+    .grid{
+      display:grid; gap:14px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top:18px;
     }
-    .step p{ margin: 0; color: var(--muted); }
-
-    .contact-grid{
-      display:grid;
+    .feature{padding:16px;}
+    .feature h3{margin:6px 0 6px; font-size:17px;}
+    .feature p{margin:0; color:var(--muted); font-size:14px;}
+    section{margin-top:26px;}
+    section h2{margin:0 0 10px; font-size:22px;}
+    .two-col{
+      display:grid; gap:14px;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items:start;
     }
-    form{
-      padding: 18px;
-    }
-    fieldset{
-      border: 1px solid rgba(255,255,255,.10);
-      border-radius: var(--radius);
-      padding: 14px;
-      margin: 0;
-    }
-    legend{
-      padding: 0 8px;
-      font-weight: 800;
-    }
-    .field{
-      display:grid;
-      gap: 6px;
-      margin-top: 12px;
-    }
-    label{ font-weight: 700; }
+    .pad{padding:16px;}
+    .list{margin:0; padding-left:18px; color:var(--muted);}
+    .list li{margin:6px 0;}
+    form{display:grid; gap:10px;}
     input, textarea{
       width:100%;
-      padding: 12px 12px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.16);
-      background: rgba(0,0,0,.28);
-      color: var(--text);
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
       font: inherit;
+      outline:none;
     }
-    textarea{ min-height: 120px; resize: vertical; }
-
-    .help{
-      font-size: .95rem;
-      color: var(--muted);
-    }
-    .note{
-      padding: 18px;
-    }
-    .note h3{ margin:0 0 8px; font-size: 1.1rem; }
-    .note p{ margin:0 0 10px; color: var(--muted); }
-    .note ul{ margin: 0; padding-left: 18px; color: var(--muted); }
-
+    input:focus, textarea:focus{border-color: rgba(58,160,255,.7);}
+    textarea{min-height:120px; resize:vertical;}
     footer{
-      border-top: 1px solid rgba(255,255,255,.08);
-      padding: 20px 0 34px;
-      color: var(--muted);
+      border-top:1px solid var(--border);
+      padding:22px 0;
+      color:var(--muted);
+      background: rgba(11,18,32,.55);
     }
+    .footer-row{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;}
+    .small{font-size:13px;}
 
-    /* Responsive */
+    /* Mobile */
     @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .grid-3{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      nav ul{ gap: 6px; }
-    }
-
-    /* Reduced motion */
-    @media (prefers-reduced-motion: reduce){
-      html{ scroll-behavior: auto; }
-      *{ transition: none !important; animation: none !important; }
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      nav ul{display:none;}
+      .brand{min-width: unset;}
+      .brand-text{display:none;} /* keep header clean on small screens */
+      .site-logo{height:38px;}
+      .lang-btn{padding:6px 8px;}
+      .right-actions{gap:8px;}
     }
   </style>
 </head>
 
 <body>
-  <a class="skip-link" href="#content">Μετάβαση στο κύριο περιεχόμενο</a>
-
   <header>
-    <div class="wrap topbar">
-      <a class="brand" href="#top" aria-label="Avgerinos Security, αρχή σελίδας">
-        <div class="logo" aria-hidden="true"><span>AS</span></div>
-        <div>
-          <strong>Avgerinos Security</strong>
-          <small>Συστήματα Ασφαλείας • Λευκάδα</small>
-        </div>
+    <div class="container nav">
+      <a class="brand" href="#top" aria-label="Home">
+        <!-- Inline SVG logo (self-contained) -->
+        <svg class="site-logo" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="IONIX Systems">
+          <defs>
+            <style>
+              .blue { fill: #1F6FAE; }
+              .stroke { fill: none; stroke: #1F6FAE; stroke-width: 12; stroke-linecap: round; }
+              .text { fill: #1F6FAE; font-family: Montserrat, Arial, sans-serif; font-weight: 700; }
+            </style>
+          </defs>
+
+          <circle cx="150" cy="150" r="90" class="stroke"/>
+          <ellipse cx="150" cy="150" rx="85" ry="35" transform="rotate(-20 150 150)" class="stroke"/>
+          <ellipse cx="150" cy="150" rx="85" ry="35" transform="rotate(35 150 150)" class="stroke"/>
+
+          <path d="M90 140 L150 110 L210 150" class="stroke"/>
+          <path d="M120 200 L150 150 L190 100" class="stroke"/>
+
+          <circle cx="150" cy="110" r="8" class="blue"/>
+          <circle cx="210" cy="150" r="8" class="blue"/>
+          <circle cx="120" cy="200" r="8" class="blue"/>
+          <circle cx="90" cy="140" r="8" class="blue"/>
+
+          <text x="280" y="145" font-size="90" class="text">IONIX</text>
+          <text x="280" y="215" font-size="52" letter-spacing="8" class="text">SYSTEMS</text>
+        </svg>
+        <span class="brand-text">IONIX Systems</span>
       </a>
 
-      <nav aria-label="Κύρια πλοήγηση">
+      <nav aria-label="Primary">
         <ul>
-          <li><a href="#services">Υπηρεσίες</a></li>
-          <li><a href="#process">Διαδικασία</a></li>
-          <li><a href="#faq">Συχνές Ερωτήσεις</a></li>
-          <li><a href="#contact">Επικοινωνία</a></li>
+          <li><a href="#services" data-i18n="nav_services">Services</a></li>
+          <li><a href="#about" data-i18n="nav_about">About</a></li>
+          <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="cta" aria-label="Γρήγορες ενέργειες">
-        <!-- Replace with your real phone and email -->
-        <a class="btn" href="tel:+30XXXXXXXXXX">
-          <span aria-hidden="true">📞</span>
-          <span>Κλήση</span>
-        </a>
-        <a class="btn primary" href="#contact">
-          <span aria-hidden="true">🛡️</span>
-          <span>Δωρεάν εκτίμηση</span>
-        </a>
+      <div class="right-actions">
+        <div class="lang-toggle" role="group" aria-label="Language">
+          <button class="lang-btn" id="btn-en" type="button" aria-pressed="true">EN</button>
+          <button class="lang-btn" id="btn-el" type="button" aria-pressed="false">GR</button>
+        </div>
+        <a class="cta" href="#contact" data-i18n="cta_quote">Get a quote</a>
       </div>
     </div>
   </header>
 
-  <main id="content" class="wrap" tabindex="-1">
-    <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid">
-        <div class="card">
-          <h1 id="hero-title">Συστήματα συναγερμού &amp; CCTV στη Λευκάδα</h1>
-          <p class="lead">
-            Η <strong>Avgerinos Security</strong> αναλαμβάνει μελέτη, εγκατάσταση και συντήρηση συστημάτων ασφαλείας
-            για κατοικίες, καταστήματα και τουριστικά καταλύματα στη Λευκάδα.
-          </p>
+  <main id="top" class="container">
+    <div class="hero">
+      <div>
+        <span class="badge" data-i18n="badge">Fast • Reliable • Local Support</span>
+        <h1 data-i18n="hero_title">Reliable IT & Network Solutions</h1>
+        <p data-i18n="hero_sub">
+          Networking, computer systems, installation and technical support.
+          Clear communication, clean work, and support after delivery.
+        </p>
 
-          <div class="cta" role="group" aria-label="Ενέργειες">
-            <a class="btn primary" href="#contact">Ζήτα προσφορά</a>
-            <a class="btn" href="#services">Δες υπηρεσίες</a>
-          </div>
-
-          <ul class="badges" aria-label="Σημεία υπεροχής">
-            <li class="badge"><b>✔</b> Καθαρή εγκατάσταση</li>
-            <li class="badge"><b>✔</b> Απομακρυσμένος έλεγχος</li>
-            <li class="badge"><b>✔</b> Υποστήριξη &amp; συντήρηση</li>
-            <li class="badge"><b>✔</b> Λύσεις για Airbnb/βίλες</li>
-          </ul>
-        </div>
-
-        <aside class="card aside" aria-labelledby="aside-title">
-          <h2 id="aside-title">Άμεση εξυπηρέτηση</h2>
-          <p>
-            Θες γρήγορη καθοδήγηση; Διάλεξε ένα θέμα και θα σε κατευθύνουμε στη σωστή λύση.
-          </p>
-          <div class="quick">
-            <a href="#contact">
-              <span>Συναγερμός για σπίτι</span>
-              <span aria-hidden="true">→</span>
-            </a>
-            <a href="#contact">
-              <span>Κάμερες για επιχείρηση</span>
-              <span aria-hidden="true">→</span>
-            </a>
-            <a href="#contact">
-              <span>Κάλυψη βίλας / καταλύματος</span>
-              <span aria-hidden="true">→</span>
-            </a>
-          </div>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services" aria-labelledby="services-title">
-      <h2 class="section-title" id="services-title">Υπηρεσίες</h2>
-      <p class="section-sub">
-        Επιλέγουμε εξοπλισμό με βάση τον χώρο σου, το επίπεδο κινδύνου και την καθημερινή χρήση, ώστε να έχεις ασφάλεια
-        χωρίς ταλαιπωρία.
-      </p>
-
-      <div class="grid-3">
-        <article class="card service" aria-labelledby="s1">
-          <h3 id="s1">Συστήματα Συναγερμού</h3>
-          <p>Ενσύρματα ή ασύρματα, ζώνες, μαγνητικές επαφές, ανιχνευτές, σειρήνες, εφαρμογή κινητού.</p>
-        </article>
-
-        <article class="card service" aria-labelledby="s2">
-          <h3 id="s2">Κάμερες CCTV</h3>
-          <p>Καταγραφή, live προβολή, νυχτερινή λήψη, απομακρυσμένη πρόσβαση και σωστή τοποθέτηση για μέγιστη κάλυψη.</p>
-        </article>
-
-        <article class="card service" aria-labelledby="s3">
-          <h3 id="s3">Θυροτηλέφωνα / Πρόσβαση</h3>
-          <p>Έλεγχος εισόδου, θυροτηλεόραση, κλειδαριές, access control για σπίτια, γραφεία και πολυκατοικίες.</p>
-        </article>
-
-        <article class="card service" aria-labelledby="s4">
-          <h3 id="s4">Συντήρηση &amp; Υποστήριξη</h3>
-          <p>Τακτικός έλεγχος, αναβαθμίσεις, διάγνωση βλαβών και γρήγορη αποκατάσταση.</p>
-        </article>
-
-        <article class="card service" aria-labelledby="s5">
-          <h3 id="s5">Μελέτη Χώρου</h3>
-          <p>Σωστή τοποθέτηση αισθητήρων/καμερών, αποφυγή “τυφλών” σημείων και καθαρή καλωδίωση.</p>
-        </article>
-
-        <article class="card service" aria-labelledby="s6">
-          <h3 id="s6">Λύσεις για Καταλύματα</h3>
-          <p>Ιδανικό για βίλες/Airbnb: εύκολη χρήση, σενάρια αφίξεων/αναχωρήσεων, ενημέρωση ιδιοκτήτη.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="process" aria-labelledby="process-title">
-      <h2 class="section-title" id="process-title">Πώς δουλεύουμε</h2>
-      <p class="section-sub">
-        Απλή, καθαρή διαδικασία, χωρίς κρυφά κόστη. Στόχος: αξιόπιστη ασφάλεια και εύκολη καθημερινή χρήση.
-      </p>
-
-      <div class="steps" role="list">
-        <div class="step" role="listitem">
-          <h3>1) Σύντομη συζήτηση</h3>
-          <p>Μας λες ανάγκες, χώρο, και τι σε απασχολεί. Προτείνουμε την κατάλληλη κατεύθυνση.</p>
-        </div>
-        <div class="step" role="listitem">
-          <h3>2) Εκτίμηση &amp; πρόταση</h3>
-          <p>Μελέτη κάλυψης και πρόταση εξοπλισμού με προτεραιότητα στη σωστή προστασία.</p>
-        </div>
-        <div class="step" role="listitem">
-          <h3>3) Εγκατάσταση</h3>
-          <p>Τακτοποιημένη τοποθέτηση, έλεγχος λειτουργίας, παράδοση με οδηγίες χρήσης.</p>
-        </div>
-        <div class="step" role="listitem">
-          <h3>4) Υποστήριξη</h3>
-          <p>Είμαστε διαθέσιμοι για ερωτήσεις, ρυθμίσεις, συντήρηση και αναβαθμίσεις.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#services" data-i18n="cta_services">See services</a>
+          <a class="ghost" href="#contact" data-i18n="cta_contact">Contact</a>
         </div>
       </div>
-    </section>
 
-    <section id="faq" aria-labelledby="faq-title">
-      <h2 class="section-title" id="faq-title">Συχνές ερωτήσεις</h2>
-      <p class="section-sub">
-        Μερικές γρήγορες απαντήσεις. Αν θες κάτι πιο συγκεκριμένο, στείλε μας μήνυμα από τη φόρμα παρακάτω.
-      </p>
-
-      <div class="grid-3">
-        <article class="card service" aria-labelledby="q1">
-          <h3 id="q1">Ασύρματος ή ενσύρματος;</h3>
-          <p>Εξαρτάται από τον χώρο και τις δυνατότητες καλωδίωσης. Και οι δύο λύσεις μπορούν να είναι αξιόπιστες όταν σχεδιαστούν σωστά.</p>
-        </article>
-        <article class="card service" aria-labelledby="q2">
-          <h3 id="q2">Θα βλέπω κάμερες από κινητό;</h3>
-          <p>Ναι, με ασφαλή απομακρυσμένη πρόσβαση και ρύθμιση δικτύου. Στόχος: σταθερή εικόνα και σωστή προστασία πρόσβασης.</p>
-        </article>
-        <article class="card service" aria-labelledby="q3">
-          <h3 id="q3">Τι γίνεται με διακοπή ρεύματος;</h3>
-          <p>Προβλέπεται εφεδρική τροφοδοσία (μπαταρία) ώστε το σύστημα να συνεχίσει να λειτουργεί για συγκεκριμένο χρόνο.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-title">
-      <h2 class="section-title" id="contact-title">Επικοινωνία</h2>
-      <p class="section-sub">
-        Συμπλήρωσε τα στοιχεία σου και θα επικοινωνήσουμε άμεσα. Τα πεδία με αστερίσκο (*) είναι υποχρεωτικά.
-      </p>
-
-      <div class="contact-grid">
-        <form class="card" action="#" method="post" aria-describedby="form-help">
-          <fieldset>
-            <legend>Φόρμα επικοινωνίας</legend>
-
-            <p id="form-help" class="help">
-              Δεν αποθηκεύουμε δεδομένα μέσω αυτής της demo φόρμας. Για πραγματική λειτουργία, σύνδεσε την με email handler ή CRM.
-            </p>
-
-            <div class="field">
-              <label for="name">Ονοματεπώνυμο *</label>
-              <input id="name" name="name" type="text" autocomplete="name" required />
-            </div>
-
-            <div class="field">
-              <label for="phone">Τηλέφωνο *</label>
-              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required aria-describedby="phone-help" />
-              <div id="phone-help" class="help">Παράδειγμα: 69XXXXXXXX</div>
-            </div>
-
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" />
-            </div>
-
-            <div class="field">
-              <label for="message">Μήνυμα *</label>
-              <textarea id="message" name="message" required></textarea>
-            </div>
-
-            <div class="field">
-              <button class="btn primary" type="submit">Αποστολή</button>
-            </div>
-          </fieldset>
-        </form>
-
-        <aside class="card note" aria-labelledby="info-title">
-          <h3 id="info-title">Στοιχεία &amp; Περιοχή</h3>
-          <p>
-            Εξυπηρετούμε <strong>Λευκάδα</strong> και γύρω περιοχές (κατόπιν συνεννόησης).
-          </p>
-          <ul>
-            <li><strong>Τηλέφωνο:</strong> <a href="tel:+30XXXXXXXXXX">+30 XXXXXXXXXX</a></li>
-            <li><strong>Email:</strong> <a href="mailto:info@example.gr">info@example.gr</a></li>
-            <li><strong>Ώρες:</strong> Δευ–Σαβ (κατόπιν ραντεβού)</li>
-          </ul>
-
-          <p class="help" style="margin-top:12px;">
-            Για WAVE/ACHEKER: πρόσθεσε πραγματική διεύθυνση/χάρτη μόνο αν είναι προσβάσιμος (ή βάλε απλό link σε Google Maps).
-          </p>
-
-          <a class="btn" href="#top">Επιστροφή στην κορυφή</a>
-        </aside>
-      </div>
-    </section>
-
-    <footer>
-      <div class="wrap">
-        <p style="margin:0;">
-          © <span id="year"></span> Avgerinos Security • Λευκάδα • Όλα τα δικαιώματα διατηρούνται.
+      <div class="card hero-card">
+        <h2 style="margin:0 0 10px;" data-i18n="quick_info">Quick info</h2>
+        <p class="small" style="margin:0 0 8px; color:var(--muted);">
+          👤 <span data-i18n="name_line">Panagiotis Katopodis</span><br/>
+          📍 <span data-i18n="location_line">Greece</span><br/>
+          ⏱ <span data-i18n="hours_line">Hours: Mon–Sat 09:00–18:00</span><br/>
+          📞 <span data-i18n="phone_label">Phone:</span> <a href="tel:+306978107559">+30 697 810 7559</a><br/>
+          ✉️ <span data-i18n="email_label">Email:</span> <a href="mailto:panos.katwp@gmail.com">panos.katwp@gmail.com</a>
+        </p>
+        <p class="small" style="margin:0; color:var(--muted);" data-i18n="availability">
+          Available for on-site work & remote support.
         </p>
       </div>
-    </footer>
+    </div>
+
+    <div class="grid">
+      <div class="card feature">
+        <h3 data-i18n="f1_title">Network & Wi‑Fi</h3>
+        <p data-i18n="f1_body">Planning, installation, optimization, and troubleshooting for stable connectivity.</p>
+      </div>
+      <div class="card feature">
+        <h3 data-i18n="f2_title">PCs, Printers & Setup</h3>
+        <p data-i18n="f2_body">Sales, configuration, backups, and clean handover so everything just works.</p>
+      </div>
+      <div class="card feature">
+        <h3 data-i18n="f3_title">Support & Maintenance</h3>
+        <p data-i18n="f3_body">On-site and remote support, updates, security basics, and preventative maintenance.</p>
+      </div>
+    </div>
+
+    <section id="services">
+      <h2 data-i18n="services_h2">Services</h2>
+      <div class="two-col">
+        <div class="card pad">
+          <h3 style="margin:0 0 10px;" data-i18n="services_left_title">What we do</h3>
+          <ul class="list">
+            <li data-i18n="s1">Network installation & Wi‑Fi setup</li>
+            <li data-i18n="s2">Computer systems, printers & peripherals</li>
+            <li data-i18n="s3">Remote & on-site troubleshooting</li>
+            <li data-i18n="s4">Small office / hospitality IT support</li>
+          </ul>
+        </div>
+        <div class="card pad">
+          <h3 style="margin:0 0 10px;" data-i18n="services_right_title">How we work</h3>
+          <ul class="list">
+            <li data-i18n="w1">Clear scope and realistic timeline</li>
+            <li data-i18n="w2">Clean installs with documentation</li>
+            <li data-i18n="w3">Support after delivery</li>
+            <li data-i18n="w4">Solutions that fit your budget</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2 data-i18n="about_h2">About</h2>
+      <div class="card pad">
+        <p style="margin:0; color:var(--muted);" data-i18n="about_body">
+          I’m Panagiotis Katopodis. I help homes and small businesses set up reliable networks and computer systems,
+          and I provide practical support when things go wrong. My focus is simple: dependable solutions, clean work,
+          and straightforward communication.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2 data-i18n="contact_h2">Contact</h2>
+      <div class="two-col">
+        <div class="card pad">
+          <h3 style="margin:0 0 10px;" data-i18n="contact_form_title">Send a message</h3>
+          <form onsubmit="return handleSubmit(event)">
+            <input id="name" name="name" placeholder="Your name" required />
+            <input id="email" name="email" placeholder="Email" type="email" required />
+            <textarea id="message" name="message" placeholder="How can we help?" required></textarea>
+            <button class="cta" type="submit" data-i18n="send_btn">Send</button>
+            <p id="formNote" class="small" style="margin:0; color:var(--muted);"></p>
+          </form>
+          <p class="small" style="margin:10px 0 0; color:var(--muted);" data-i18n="form_note">
+            Note: this form is currently a demo (no backend). If you want it to actually send email, tell me where you host the site and I’ll wire it up.
+          </p>
+        </div>
+
+        <div class="card pad">
+          <h3 style="margin:0 0 10px;" data-i18n="direct_contact">Direct contact</h3>
+          <p style="margin:0; color:var(--muted);">
+            <strong style="color:var(--text);">IONIX Systems</strong><br/>
+            <span data-i18n="name_line">Panagiotis Katopodis</span><br/><br/>
+            <span data-i18n="phone_label">Phone:</span> <a href="tel:+306978107559">+30 697 810 7559</a><br/>
+            <span data-i18n="email_label">Email:</span> <a href="mailto:panos.katwp@gmail.com">panos.katwp@gmail.com</a><br/><br/>
+            <span data-i18n="address_hint">Add your address here (optional).</span><br/>
+            <span data-i18n="map_hint">We can embed a Google Map if you want.</span>
+          </p>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <script>
-    // Tiny JS, no animations, no accessibility traps
-    document.getElementById("year").textContent = new Date().getFullYear();
+  <footer>
+    <div class="container footer-row">
+      <div class="small" data-i18n="footer_left">© <span id="year"></span> Panagiotis Katopodis – IONIX Systems. All rights reserved.</div>
+      <div class="small" data-i18n="footer_right">Built with plain HTML/CSS.</div>
+    </div>
+  </footer>
 
-    // Prevent demo form submission without breaking accessibility
-    const form = document.querySelector("form");
-    form.addEventListener("submit", (e) => {
+  <script>
+    const i18n = {
+      en: {
+        doc_title: "IONIX Systems — Panagiotis Katopodis",
+        meta_desc: "IONIX Systems — IT & network solutions by Panagiotis Katopodis. Networking, computer systems, support and installation.",
+        nav_services: "Services",
+        nav_about: "About",
+        nav_contact: "Contact",
+        cta_quote: "Get a quote",
+        badge: "Fast • Reliable • Local Support",
+        hero_title: "Reliable IT & Network Solutions",
+        hero_sub: "Networking, computer systems, installation and technical support. Clear communication, clean work, and support after delivery.",
+        cta_services: "See services",
+        cta_contact: "Contact",
+        quick_info: "Quick info",
+        name_line: "Panagiotis Katopodis",
+        location_line: "Greece",
+        hours_line: "Hours: Mon–Sat 09:00–18:00",
+        phone_label: "Phone:",
+        email_label: "Email:",
+        availability: "Available for on-site work & remote support.",
+        f1_title: "Network & Wi‑Fi",
+        f1_body: "Planning, installation, optimization, and troubleshooting for stable connectivity.",
+        f2_title: "PCs, Printers & Setup",
+        f2_body: "Sales, configuration, backups, and clean handover so everything just works.",
+        f3_title: "Support & Maintenance",
+        f3_body: "On-site and remote support, updates, security basics, and preventative maintenance.",
+        services_h2: "Services",
+        services_left_title: "What we do",
+        s1: "Network installation & Wi‑Fi setup",
+        s2: "Computer systems, printers & peripherals",
+        s3: "Remote & on-site troubleshooting",
+        s4: "Small office / hospitality IT support",
+        services_right_title: "How we work",
+        w1: "Clear scope and realistic timeline",
+        w2: "Clean installs with documentation",
+        w3: "Support after delivery",
+        w4: "Solutions that fit your budget",
+        about_h2: "About",
+        about_body: "I’m Panagiotis Katopodis. I help homes and small businesses set up reliable networks and computer systems, and I provide practical support when things go wrong. My focus is simple: dependable solutions, clean work, and straightforward communication.",
+        contact_h2: "Contact",
+        contact_form_title: "Send a message",
+        send_btn: "Send",
+        form_note: "Note: this form is currently a demo (no backend). If you want it to actually send email, tell me where you host the site and I’ll wire it up.",
+        direct_contact: "Direct contact",
+        address_hint: "Add your address here (optional).",
+        map_hint: "We can embed a Google Map if you want.",
+        footer_left: "© <span id=\"year\"></span> Panagiotis Katopodis – IONIX Systems. All rights reserved.",
+        footer_right: "Built with plain HTML/CSS.",
+        ph_name: "Your name",
+        ph_email: "Email",
+        ph_message: "How can we help?",
+        thanks: (name) => `Thanks, ${name}! This demo form doesn't send yet.`
+      },
+      el: {
+        doc_title: "IONIX Systems — Παναγιώτης Κατωπόδης",
+        meta_desc: "IONIX Systems — λύσεις IT & δικτύων από τον Παναγιώτη Κατωπόδη. Δίκτυα, υπολογιστικά συστήματα, υποστήριξη και εγκαταστάσεις.",
+        nav_services: "Υπηρεσίες",
+        nav_about: "Σχετικά",
+        nav_contact: "Επικοινωνία",
+        cta_quote: "Ζήτα προσφορά",
+        badge: "Γρήγορα • Αξιόπιστα • Τοπική υποστήριξη",
+        hero_title: "Αξιόπιστες λύσεις IT & δικτύων",
+        hero_sub: "Δίκτυα, υπολογιστικά συστήματα, εγκαταστάσεις και τεχνική υποστήριξη. Καθαρή επικοινωνία, σωστή δουλειά και υποστήριξη μετά την παράδοση.",
+        cta_services: "Δες υπηρεσίες",
+        cta_contact: "Επικοινωνία",
+        quick_info: "Σύντομα στοιχεία",
+        name_line: "Παναγιώτης Κατωπόδης",
+        location_line: "Ελλάδα",
+        hours_line: "Ώρες: Δευ–Σαβ 09:00–18:00",
+        phone_label: "Τηλέφωνο:",
+        email_label: "Email:",
+        availability: "Διαθέσιμος για εργασία στο χώρο σας & απομακρυσμένη υποστήριξη.",
+        f1_title: "Δίκτυο & Wi‑Fi",
+        f1_body: "Μελέτη, εγκατάσταση, βελτιστοποίηση και επίλυση προβλημάτων για σταθερή σύνδεση.",
+        f2_title: "Υπολογιστές, Εκτυπωτές & Ρύθμιση",
+        f2_body: "Πωλήσεις, παραμετροποίηση, αντίγραφα ασφαλείας και παράδοση ώστε όλα να δουλεύουν σωστά.",
+        f3_title: "Υποστήριξη & Συντήρηση",
+        f3_body: "Υποστήριξη στο χώρο σας ή απομακρυσμένα, ενημερώσεις, βασική ασφάλεια και προληπτική συντήρηση.",
+        services_h2: "Υπηρεσίες",
+        services_left_title: "Τι κάνουμε",
+        s1: "Εγκατάσταση δικτύου & ρύθμιση Wi‑Fi",
+        s2: "Υπολογιστικά συστήματα, εκτυπωτές & περιφερειακά",
+        s3: "Απομακρυσμένη & επιτόπια αντιμετώπιση προβλημάτων",
+        s4: "Υποστήριξη IT για μικρές επιχειρήσεις / φιλοξενία",
+        services_right_title: "Πώς δουλεύουμε",
+        w1: "Σαφές αντικείμενο και ρεαλιστικό χρονοδιάγραμμα",
+        w2: "Καθαρές εγκαταστάσεις με τεκμηρίωση",
+        w3: "Υποστήριξη μετά την παράδοση",
+        w4: "Λύσεις που ταιριάζουν στον προϋπολογισμό σας",
+        about_h2: "Σχετικά",
+        about_body: "Είμαι ο Παναγιώτης Κατωπόδης. Βοηθάω σπίτια και μικρές επιχειρήσεις να στήσουν αξιόπιστα δίκτυα και υπολογιστικά συστήματα και παρέχω πρακτική υποστήριξη όταν κάτι δεν δουλεύει. Στόχος μου: αξιόπιστες λύσεις, καθαρή δουλειά και ξεκάθαρη επικοινωνία.",
+        contact_h2: "Επικοινωνία",
+        contact_form_title: "Στείλε μήνυμα",
+        send_btn: "Αποστολή",
+        form_note: "Σημείωση: αυτή η φόρμα είναι demo (χωρίς backend). Αν θες να στέλνει πραγματικά email, πες μου πού φιλοξενείται το site και θα το συνδέσω.",
+        direct_contact: "Άμεση επικοινωνία",
+        address_hint: "Βάλε εδώ τη διεύθυνσή σου (προαιρετικό).",
+        map_hint: "Μπορούμε να βάλουμε και Google Map αν θες.",
+        footer_left: "© <span id=\"year\"></span> Παναγιώτης Κατωπόδης – IONIX Systems. Με επιφύλαξη παντός δικαιώματος.",
+        footer_right: "Φτιαγμένο με καθαρό HTML/CSS.",
+        ph_name: "Ονοματεπώνυμο",
+        ph_email: "Email",
+        ph_message: "Πώς μπορούμε να βοηθήσουμε;",
+        thanks: (name) => `Ευχαριστώ, ${name}! Η demo φόρμα δεν στέλνει ακόμη.`
+      }
+    };
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    const yearEl = document.getElementById("year");
+    yearEl.textContent = new Date().getFullYear();
+
+    function applyLang(lang){
+      const dict = i18n[lang] || i18n.en;
+
+      // Set lang attribute (helps accessibility / SEO)
+      document.documentElement.lang = (lang === "el") ? "el" : "en";
+
+      // Title + meta description
+      document.title = dict.doc_title;
+      if(metaDesc) metaDesc.setAttribute("content", dict.meta_desc);
+
+      // Update text nodes
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(!(key in dict)) return;
+        // Some strings contain HTML (footer year span), so use innerHTML for those
+        if(key.startsWith("footer_")) el.innerHTML = dict[key];
+        else el.textContent = dict[key];
+      });
+
+      // Update placeholders
+      const nameInput = document.getElementById("name");
+      const emailInput = document.getElementById("email");
+      const msgInput = document.getElementById("message");
+      if(nameInput) nameInput.placeholder = dict.ph_name;
+      if(emailInput) emailInput.placeholder = dict.ph_email;
+      if(msgInput) msgInput.placeholder = dict.ph_message;
+
+      // Update language buttons state
+      document.getElementById("btn-en").setAttribute("aria-pressed", lang === "en" ? "true" : "false");
+      document.getElementById("btn-el").setAttribute("aria-pressed", lang === "el" ? "true" : "false");
+
+      // Re-apply year into footer after innerHTML changes
+      const y = new Date().getFullYear();
+      document.querySelectorAll("#year").forEach(x => x.textContent = y);
+
+      // Store preference
+      try { localStorage.setItem("ionix_lang", lang); } catch(e){}
+    }
+
+    // Initial language: saved -> browser -> default EN
+    const saved = (() => { try { return localStorage.getItem("ionix_lang"); } catch(e){ return null; } })();
+    const browser = (navigator.language || "en").toLowerCase().startsWith("el") ? "el" : "en";
+    applyLang(saved || browser);
+
+    // Toggle handlers
+    document.getElementById("btn-en").addEventListener("click", () => applyLang("en"));
+    document.getElementById("btn-el").addEventListener("click", () => applyLang("el"));
+
+    function handleSubmit(e){
       e.preventDefault();
-      alert("Ευχαριστούμε! (Demo φόρμα) — Σύνδεσε την φόρμα με email/CRM για πραγματική αποστολή.");
-    });
+
+      const lang = (document.documentElement.lang === "el") ? "el" : "en";
+      const dict = i18n[lang] || i18n.en;
+
+      const name = (document.getElementById("name").value || "").trim();
+      const note = document.getElementById("formNote");
+      note.textContent = dict.thanks(name || (lang === "el" ? "!" : "!"));
+
+      e.target.reset();
+      return false;
+    }
   </script>
 </body>
 </html>
